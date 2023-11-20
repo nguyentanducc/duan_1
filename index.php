@@ -4,7 +4,10 @@ include "model/pdo.php";
 include "model/sanpham.php";
 include "model/danhmuc.php";
 include "model/taikhoan.php";
+include "model/giohang.php";
 include "view/header.php";
+include "global.php";
+if(!isset($_SESSION['cart'])) $_SESSION['cart']=[];
 $spnew = loadall_sanpham_home();
 $dsdm = loadall_danhmuc();
 if(isset($_GET['act'])&&($_GET['act']!="")){
@@ -26,10 +29,35 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
             include "view/sanpham.php";
             break;
             case "sanphamct":
-                include "view/sanphamct.php";
+                if(isset($_GET['idsp']) && $_GET['idsp'] > 0){
+                    $sp = loadone_sanpham($_GET['idsp']);
+                    $sanphamcl=load_sanpham_cungloai($_GET['idsp'], $sp['id_danhmuc']);
+                    include "view/sanphamct.php";
+                }else{
+                    include "view/home.php";            
+                }
+                
                 break;
-            case "cart":
+            case "addtocart":
+                if(isset($_POST['addtocart'])&&($_POST['addtocart'])){
+                    $id=$_POST['id'];
+                    $name=$_POST['ten'];
+                    $img=$_POST['hinh'];
+                    $price=$_POST['gia'];
+                    $soluong=1;
+                    $ttien=$soluong*$price;
+                    $spadd=[$id,$name,$img,$price,$soluong,$ttien]; 
+                    array_push($_SESSION['cart'],$spadd);
+                }
                 include "view/giohang.php";
+                break;
+            case "delcart": 
+                if(isset($_GET['idcart'])){
+                    array_splice($_SESSION['cart'],$_GET['idcart'],1);
+                }else{
+                    $_SESSION['cart']=[];
+                }
+                header('Location: index.php?act=addtocart');
                 break;
             case "login":
                 if(isset($_POST['dangnhap']) ){

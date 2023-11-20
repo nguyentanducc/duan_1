@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -68,7 +68,7 @@
                                                 ?>
                                                     <li><a href="templatefree\contact.html" title="Contact">Liên Hệ</a></li>
                                                     <li><a href="templatefree\my-account.html" title="My account">Nguyễn Tấn Đức</a></li>
-                                                    <li><a href="index.php?act=cart" title="My cart">Giỏ Hàng</a></li>
+                                                    <li><a href="index.php?act=addtocart" title="My cart">Giỏ Hàng</a></li>
                                                     <li><a href="index.php?act=login" title="Login">Đăng Nhập</a></li>
                                                 </ul>
                                                 <?php } ?>

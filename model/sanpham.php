@@ -25,11 +25,11 @@ function loadall_sanpham($keyw="",$id_danhmuc=0){
 
 // 
 // function loadone_sanpham($id){
-//     $sql = "select * from sanpham where id = $id";
+//     $sql = "select * from tb_sanphamm where id = $id";
 //     $result = pdo_query_one($sql);
 //     return $result;
 // }
-function load_sanpham_cungloai($id, $id_danhmuc){
+function load_sanpham_cungloai($id,$id_danhmuc){
     $sql = "select * from tb_sanphamm  where id_danhmuc = $id_danhmuc and id <> $id";
     $result = pdo_query($sql);
     return $result;

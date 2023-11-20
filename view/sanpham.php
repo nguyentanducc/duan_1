@@ -1,10 +1,11 @@
 <!--breadcrumbs area start-->
+
 <div class="breadcrumbs_area">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="breadcrumb_content">
                                         <ul>
-                                            <li><a href="index.html">Trang Chủ</a></li>
+                                            <li><a href="index.phps">Trang Chủ</a></li>
                                             <li><i class="fa fa-angle-right"></i></li>
                                             <li>Full Sản Phẩm</li>
                                         </ul>
@@ -15,12 +16,17 @@
                         <!--breadcrumbs area end-->
 
                         <!--pos home section-->
+                        <?php include "boxleft.php";
+?>
+<div class="col-lg-9 col-md-12">
                         <div class=" pos_home_section shop_section shop_fullwidth">
                             <div class="row">
+                                
                                 <div class="col-12">
+                                    
                                     <!--banner slider start-->
                                     <div class="banner_slider fullwidht  mb-35">
-                                        <img src="assets\img\banner\bannner10.jpg" alt="">
+                                        <img src="./upload/banner.png" alt="">
                                     </div> 
                                     <!--banner slider start-->
                                 </div>
@@ -42,23 +48,11 @@
                                         <div class="page_amount">
                                             <p>Showing 1–9 of 21 results</p>
                                         </div>
-                                        <div class="select_option">
-                                            <form action="#">
-                                                <label>Sort By</label>
-                                                <select name="orderby" id="short">
-                                                    <option selected="" value="1">Position</option>
-                                                    <option value="1">Price: Lowest</option>
-                                                    <option value="1">Price: Highest</option>
-                                                    <option value="1">Product Name:Z</option>
-                                                    <option value="1">Sort by price:low</option>
-                                                    <option value="1">Product Name: Z</option>
-                                                    <option value="1">In stock</option>
-                                                    <option value="1">Product Name: A</option>
-                                                    <option value="1">In stock</option>
-                                                </select>
-                                            </form>
-                                        </div>
-                                    </div>
+                                        
+                                            
+                                               
+                                          
+                                   
                                     <!--shop toolbar end-->
                                 </div>
                             </div>        
@@ -71,38 +65,39 @@
                                             <?php
                                              $i=0;
                                             foreach($dssp as $sanpham){
-                                               
                                                 extract($sanpham);
-                                                if(($i==2)||($i==5)||($i=8)){
-                                                    $mr="";
-                                                }else{
-                                                    $mr="mr";
-                                                }
+                                                $link="index.php?act=sanphamct&idsp=$id";
                                                 $hinhpath= "./admin/nalika/upload/".$hinh;
                                                     if(is_file($hinhpath)){
-                                                        $hinh="<img src='".$hinhpath."' >";
+                                                        $hinh="<img src='".$hinhpath."'  height='200px'>";
                                                     }else{
                                                         $hinh="no photo";
                                                     }
                                           
                                             echo'<div class="col-lg-3 col-md-4 col-sm-6">
-                                            <div class="single_product" '.$mr.'>
+                                            <div class="single_product" >
                                                 <div class="product_thumb">
-                                                   <a href="single-product.html">'.$hinh.' </a> 
+                                                   <a href="'.$link.'">'.$hinh.' </a> 
                                                    <div class="img_icone">
                                                        <img src="assets\img\cart\span-new.png" alt="">
                                                    </div>
                                                    <div class="product_action">
-                                                       <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                       <a href="#"> 
+                                                       <form action="index.php?act=addtocart" method="post" >
+                                                       <input type="hidden" name="id" value="'.$id.'">
+                                                       <input type="hidden" name="ten" value="'.$ten.'">
+                                                       <input type="hidden" name="hinh" value="'.$hinh.'">
+                                                       <input type="hidden" name="gia" value="'.$gia.'">
+                                                       <input type="submit" name="addtocart" value="THÊM VÀO GIỎ HÀNG" style="color:white; background: #018576; border:#018576;" ">
+                                                   </form> </a>
                                                    </div>
                                                 </div>
                                                 <div class="product_content">
                                                     <span class="product_price">$'.$gia.'</span>
-                                                    <h3 class="product_title"><a href="single-product.html">'.$ten.'</a></h3>
+                                                    <h3 class="product_title"><a href="'.$link.'">'.$ten.'</a></h3>
                                                 </div>
                                                 <div class="product_info">
                                                     <ul>
-                                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
                                                         <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
                                                     </ul>
                                                 </div>
@@ -363,7 +358,11 @@
                                                         </ul>
                                                     </div>
                                                 </div>
+                                                
                                             </div> -->
+                                            
+                                        </div> 
+                                            </div> 
                                         </div>  
                                     </div>
                                     <div class="tab-pane fade" id="list" role="tabpanel">
@@ -427,10 +426,13 @@
                                                         </div>
                                                     </div>
                                                 </div> 
-                                            </div>';
+                                            </div>
+                                        </div>
+                                            ';
                                             }
                                             $i+=1;
-                                        ?>
+                                        ?> </div>
+                                        </div>
                                         <!-- <div class="product_list_item mb-35">
                                             <div class="row align-items-center">
                                                 <div class="col-lg-3 col-md-5 col-sm-6">

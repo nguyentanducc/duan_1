@@ -36,35 +36,42 @@
                                                         </div>
                                                     </div>
                                                 </div> -->
-                                                
                                                        <?php
+                                                       $i=0;
                                                        foreach ($spnew as $sanpham){
                                                         extract($sanpham);
+                                                        $link="index.php?act=sanphamct&idsp=$id";
                                                         $hinhpath= "./admin/nalika/upload/".$hinh;
-                                                        if(is_file($hinhpath)){
-                                                            $hinh="<img src='".$hinhpath."' >";
-                                                        }else{
-                                                            $hinh="no photo";
-                                                        }
+                                                            if(($i==2)||($i==5)||($i==8)){
+                                                                $mr="";
+                                                            }else{
+                                                                $mr="mr";
+                                                            }
                                                        echo'<div class="col-lg-3">
                                                        <div class="single_product"> 
                                                        <div class="product_thumb">
-                                                       <a href="index.php?act=sanphamct">'.$hinh.'</a> 
+                                                       <a href="'.$link.'"><img src="'.$hinhpath.'" alt=""></a> 
                                                        <div class="hot_img">
                                                            <img src="templatefree\assets\img\cart\span-new.png" alt="">
                                                        </div>
                                                        <div class="product_action">
-                                                           <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                           <a href="#"> 
+                                                           <form action="index.php?act=addtocart" method="post" >
+                                                            <input type="hidden" name="id" value="'.$id.'">
+                                                            <input type="hidden" name="ten" value="'.$ten.'">
+                                                            <input type="hidden" name="hinh" value="'.$hinh.'">
+                                                            <input type="hidden" name="gia" value="'.$gia.'">
+                                                            <input type="submit" name="addtocart" value="THÊM VÀO GIỎ HÀNG" style="color:white; background: #018576; border:#018576;" ">
+                                                        </form> 
+                
                                                        </div>
                                                     </div>
                                                     <div class="product_content">
                                                         <span class="product_price">$'.$gia.'</span>
-                                                        <h3 class="product_title"><a href="index.php?act=sanphamct">'.$ten.'</a></h3>
+                                                        <h3 class="product_title"><a href="'.$link.'">'.$ten.'</a></h3>
                                                     </div>
                                                     <div class="product_info">
                                                         <ul>
-                                                            <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
                                                         </ul>
                                                     </div>
                                                     </div>
@@ -157,6 +164,7 @@
                                                 <?php
                                                 foreach($spnew as $sanpham){
                                                     extract($sanpham);
+                                                    $link="index.php?act=sanphamct&idsp=$id";
                                                     $hinhpath= "./admin/nalika/upload/".$hinh;
                                                     if(is_file($hinhpath)){
                                                         $hinh="<img src='".$hinhpath."' >";
@@ -166,22 +174,26 @@
                                                     echo'<div class="col-lg-3">
                                                     <div class="single_product">
                                                         <div class="product_thumb">
-                                                           <a href="index.php?act=sanphamct">'.$hinh.'</a> 
+                                                           <a href="'.$link.'">'.$hinh.'</a> 
                                                            <div class="hot_img">
                                                                <img src="templatefree\assets\img\cart\span-hot.png" alt="">
                                                            </div>
                                                            <div class="product_action">
-                                                               <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                               <a href="#"><form action="index.php?act=addtocart" method="post" >
+                                                               <input type="hidden" name="id" value="'.$id.'">
+                                                               <input type="hidden" name="ten" value="'.$ten.'">
+                                                               <input type="hidden" name="hinh" value="'.$hinh.'">
+                                                               <input type="hidden" name="gia" value="'.$gia.'">
+                                                               <input type="submit" name="addtocart" value="THÊM VÀO GIỎ HÀNG" style="color:white; background: #018576; border:#018576;" ">
+                                                           </form></a>
                                                            </div>
                                                         </div>
                                                         <div class="product_content">
                                                             <span class="product_price">$'.$gia.'</span>
-                                                            <h3 class="product_title"><a href="index.php?act=sanphamct">'.$ten.'</a></h3>
+                                                            <h3 class="product_title"><a href="'.$link.'">'.$ten.'</a></h3>
                                                         </div>
                                                         <div class="product_info">
                                                             <ul>
-                                                                <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
-                                                                <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
                                                             </ul>
                                                         </div>
                                                     </div>

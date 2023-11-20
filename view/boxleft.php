@@ -20,9 +20,9 @@
                                             <?php 
                                             foreach($dsdm as $danhmuc){
                                                 extract($danhmuc);
-                                                echo'<li class="has-sub"><a href="#"><i class="fa fa-caret-right"></i> '.$ten.'</a>
-                                           
-                                            </li>
+                                             $linkdm="index.php?act=sanpham&id_danhmuc=".$id;
+                                                echo'<a href="'.$linkdm.'" style="color:white;"><li>  '.$ten.'
+                                            </li></a>
                                              ';
                                             }
                                             
@@ -68,32 +68,33 @@
                                         <div class="block_title">
                                             <h3><a href="#">Sản Phẩm Bán Chạy</a></h3>
                                         </div>
-                                        <div class="cart_item">
-                                           <div class="cart_img">
-                                               <a href="index.php?act=sanphamct"><img src="templatefree\assets\img\cart\cart.jpg" alt=""></a>
-                                           </div>
-                                            <div class="cart_info">
-                                                <a href="index.php?act=sanphamct">lorem ipsum dolor</a>
-                                                <span class="cart_price">$115.00</span>
-                                                <span class="quantity">Qty: 1</span>
+                                        <?php
+                                        foreach($spnew as $sanpham){
+                                            extract($sanpham);
+                                            $link="index.php?act=sanphamct&idsp=$id";
+                                            $hinhpath= "./admin/nalika/upload/".$hinh;
+                                            if(is_file($hinhpath)){
+                                                $hinh="<img src='".$hinhpath."' >";
+                                            }else{
+                                                $hinh="no photo";
+                                            }
+                                            echo'<div class="cart_item">
+                                            <div class="cart_img">
+                                                <a href="'.$link.'">'.$hinh.'</a>
                                             </div>
-                                            <div class="cart_remove">
-                                            </div>
-                                        </div>
-                                        <div class="cart_item">
-                                           <div class="cart_img">
-                                               <a href="index.php?act=sanphamct"><img src="templatefree\assets\img\cart\cart2.jpg" alt=""></a>
-                                           </div>
-                                            <div class="cart_info">
-                                                <a href="index.php?act=sanphamct">Quisque ornare dui</a>
-                                                <span class="cart_price">$105.00</span>
-                                                <span class="quantity">Qty: 1</span>
-                                            </div>
-                                            <div class="cart_remove">
-                                            </div>
-                                        </div>
+                                             <div class="cart_info">
+                                                 <a href="index.php?act=sanphamct">'.$ten.'</a>
+                                                 <span class="cart_price">$'.$gia.'</span>
+                                                 <span class="quantity">Qty: 1</span>
+                                             </div>
+                                             <div class="cart_remove">
+                                             </div>
+                                         </div>';}
+                                            ?>
+                                        
+                                        
                                         <div class="block_content">
-                                            <p>2  products</p>
+                                            <p>5  products</p>
                                             <a href="#">» My wishlists</a>
                                         </div>
                                     </div>
