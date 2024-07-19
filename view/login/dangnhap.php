@@ -22,14 +22,14 @@
                                         <div class="col-lg-6 col-md-6">
                                             <div class="account_form">
                                                 <h2>Đăng Nhập</h2>
-                                                <form action="index.php?act=login" method="POST">
+                                                <form action="index.php?act=login" method="POST" enctype="multipart/form-data">
                                                     <p>   
-                                                        <label>Tên hoặc Email <span>*</span></label>
-                                                        <input type="text" name="tai_khoan">
+                                                        <label>Tên Tài Khoản <span>*</span></label>
+                                                        <input type="text" name="tai_khoan" required>
                                                      </p>
                                                      <p>   
                                                         <label>Mật Khẩu <span>*</span></label>
-                                                        <input type="password" name="mat_khau">
+                                                        <input type="password" name="mat_khau" required>
                                                      </p>   
                                                     <div class="login_submit">
                                                         <button type="submit" name="dangnhap" value="Đăng Nhập">Đăng Nhập</button>

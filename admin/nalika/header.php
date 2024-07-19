@@ -7,6 +7,8 @@
     <title>Admin Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <!-- favicon
 		============================================ -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
@@ -128,8 +130,6 @@
                             <a class="has-arrow" href="index.php?act=dsdh" aria-expanded="false"><span class="mini-click-non">Đơn Hàng </span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="File Manager" href="index.php?act=dsdh"><span class="mini-sub-pro">Danh Sách Đơn Hàng</span></a></li>
-                                <li><a title="Blog" href="index.php?act=dsbl"><span class="mini-sub-pro">Sửa Đơn Hàng</span></a></li>
-                                <li><a title="Blog Details" href="index.php?act=dsbl"><span class="mini-sub-pro">Thêm Đơn Hàng</span></a></li>
                             </ul>
                         </li>
                         <li>
@@ -137,6 +137,18 @@
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="File Manager" href="index.php?act=dsbanner"><span class="mini-sub-pro">Danh Sách Banner</span></a></li>
                                 <li><a title="File Manager" href="index.php?act=suabanner"><span class="mini-sub-pro">Sửa Banner</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="index.php?act=album" aria-expanded="false"><span class="mini-click-non">Album hình</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="File Manager" href="index.php?act=album"><span class="mini-sub-pro">Danh Sách Hình</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="index.php?act=dsthongke" aria-expanded="false"><span class="mini-click-non">Thống Kê</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="File Manager" href="index.php?act=dsthongke"><span class="mini-sub-pro">Danh Sách Thống Kê</span></a></li>
                             </ul>
                         </li>
                         <li class="active"><a class="has-arrow" href="index.php">	   

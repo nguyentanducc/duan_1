@@ -10,8 +10,8 @@
 												<i class="icon nalika-home"></i>
 											</div>
 											<div class="breadcomb-ctn">
-												<h2>Product Cart</h2>
-												<p>Welcome to Nalika <span class="bread-ntd">Admin Template</span></p>
+												<h2>Quản Lí Đơn Hàng</h2>
+												<p>Welcome to Nalika<span class="bread-ntd">Admin Nalika</span></p>
 											</div>
 										</div>
                                     </div>
@@ -33,35 +33,63 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="product-cart-inner">
                             <div id="example-basic">
-                                <h3>Shopping Cart</h3>
+                                <h3 style="color:#fff">Đơn Hàng</h3>
                                 <section>
                                     <h3 class="product-cart-dn">Shopping</h3>
                                     <div class="product-list-cart">
                                         <div class="product-status-wrap border-pdt-ct">
                                             <table>
                                                 <tr>
-                                                    <th>Image</th>
-                                                    <th>Product Title</th>
-                                                    <th>Quality</th>
-                                                    <th>Price</th>
-                                                    <th>Action</th>
+                                                <form role="search" action="index.php?act=dsdh" method="POST" class="">
+                                                <th>
+													<input type="text" name="kyw" placeholder="Tìm Kiếm..." class="form-control">
+												</th>
+                                                <th><input type="submit" name="listok" class="form-control"></th>
+                                                </form>
                                                 </tr>
                                                 <tr>
-                                                    <td><img src="img/product/1.jpg" alt="" /></td>
-                                                    <td>
-                                                        <h3>Product Title 1</h3>
-                                                        <p>Lorem ipsum dolor sit consec te imperdiet iaculis ipsum.</p>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" class="form-control" value="2">
-                                                    </td>
-                                                    <td>$18</td>
-                                                    <td>
-                                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                                    </td>
+                                                    <th>MÃ ĐƠN HÀNG</th>
+                                                    <th>KHÁCH HÀNG</th>
+                                                    <th>SỐ LƯỢNG HÀNG</th>
+                                                    <th>GIÁ TRỊ ĐƠN HÀNG</th>
+                                                    <th>NGÀY ĐẶT HÀNG</th>
+                                                    <th>TÌNH TRANG ĐƠN HÀNG</th>
+                                                    <th>Trạng Thái Thanh Toán</th>
+                                                    <th>Chi TIẾT ĐƠN HÀNG</th>
+                                                    <th>THAO TÁC</th>
                                                 </tr>
-                                                <tr>
+                                                <?php 
+                                                    foreach ($listbill as $bill) {
+                                                        extract($bill);
+                                                        $kh=$bill["ten"].'
+                                                        <br> '.$bill["email"].'
+                                                        <br> '.$bill["dien_thoai"].'
+                                                        <br> '.$bill["dia_chi"];
+                
+                                                        $countsp=loadall_cart_count($bill["id"]);
+                                                        $ttdh=get_ttdh($bill["trang_thai"]);
+                                                        $suadh="index.php?act=suadh&id=".$id;
+                                                        $xoadh="index.php?act=xoadh&id=".$id;
+                                                        $paybill=get_tt($bill["tinhtrangtt"]);
+                                                        $chitietdh="index.php?act=ctdh&id=".$id;
+                                                        echo '<tr>
+                                                        <td>NLK-'.$bill['id'].'</td>
+                                                        <td>'.$kh.'</td>
+                                                        <td>'.$countsp.'</td>
+                                                        <td>'.$bill['tong_tien'].'</td>
+                                                        <td>'.$bill['ngay_mua'].'</td>
+                                                        <td>'.$ttdh.'</td>
+                                                        <td>'.$paybill.'</td>
+                                                        <td><a href="'.$chitietdh.'"><input type="button" value="Chi tiết đơn hàng"></a></td>
+                                                        <td>
+                                                        <a href="'.$suadh.'"><button data-toggle="tooltip" title="Sửa" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                                        <a href="'.$xoadh.'"><button data-toggle="tooltip" title="Xóa" class="pd-setting-ed" onclick="return confirm(\'Bạn có chắc muốn xóa\')"> <i class="fa fa-trash-o" aria-hidden="true" ></i></button></a>
+                                                    </td>
+                                                    </tr>';
+                                                    }
+                                                ?>
+                                                
+                                                <!-- <tr>
                                                     <td><img src="img/product/2.jpg" alt="" /></td>
                                                     <td>
                                                         <h3>Product Title 2</h3>
@@ -120,24 +148,24 @@
                                                         <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                                                         <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                                     </td>
-                                                </tr>
+                                                </tr> -->
                                             </table>
                                         </div>
                                     </div>
                                 </section>
-                                <h3>Delivery Details</h3>
+                                <!-- <h3>Thông Tin Khách Hàng</h3>
                                 <section>
                                     <h3 class="product-cart-dn">Shopping</h3>
                                     <div class="product-delivary">
                                         <div class="form-group">
-                                            <label for="card-number" class="form-label">First name *</label>
+                                            <label for="card-number" class="form-label">Tên</label>
                                             <input id="name-2" name="name" type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="card-number" class="form-label">Last name *</label>
+                                        </div> -->
+                                        <!-- <div class="form-group">
+                                            <label for="card-number" class="form-label">Địa Chỉ *</label>
                                             <input id="surname-2" name="surname" type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
+                                        </div> -->
+                                        <!-- <div class="form-group">
                                             <label for="card-number" class="form-label">Select Country</label>
                                             <select class="form-control required">
 													<option>Select Country</option>
@@ -147,23 +175,23 @@
 													<option>Tripura</option>
 													<option>Sikkim</option>
 												</select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="address" class="form-label">Address *</label>
+                                        </div> -->
+                                        <!-- <div class="form-group">
+                                            <label for="address" class="form-label">Địa Chỉ *</label>
                                             <input id="address" name="address" type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
+                                        </div> -->
+                                        <!-- <div class="form-group">
                                             <label for="city" class="form-label">City *</label>
                                             <input id="city" name="city" type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="phone-2" class="form-label">Phone #</label>
+                                        </div> -->
+                                        <!-- <div class="form-group">
+                                            <label for="phone-2" class="form-label">Số Điện THoại #</label>
                                             <input id="phone-2" name="phone" type="number" class="form-control phone">
                                         </div>
                                     </div>
-                                </section>
-                                <h3>Payment Details</h3>
-                                <section>
+                                </section> -->
+                                <!-- <h3>Phương Thức Thanh Toán</h3> -->
+                                <!-- <section>
                                     <h3 class="product-cart-dn">Shopping</h3>
                                     <div class="payment-details">
                                         <select id="hello-single" class="form-control">
@@ -247,19 +275,30 @@
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-block">Submit</button>
                                     </div>
-                                </section>
-                                <h3>Confirmation</h3>
-                                <section>
+                                </section> -->
+                                <!-- <h3>Confirmation</h3> -->
+                                <!-- <section>
                                     <div class="product-confarmation">
                                         <h2>Congratulations! Your Order is accepted.</h2>
                                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
                                             it to make a type specimen book.</p>
                                         <button class="btn btn-primary m-y">Track Order</button>
                                     </div>
-                                </section>
+                                </section> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <style>
+            .form-label{
+                color:#fff;
+            }
+            h3{
+                color:#fff;
+            }
+            .control-label{
+                color:#fff;
+            }
+        </style>

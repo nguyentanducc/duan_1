@@ -8,8 +8,8 @@ function insert_taikhoan($email,$tai_khoan,$mat_khau){
     $sql="insert into tb_user(email,tai_khoan,mat_khau) values('$email','$tai_khoan','$mat_khau')";
     pdo_execute($sql);
 }
-function checkuser($user,$pass){
-    $sql = "select * from tb_user where tai_khoan='".$user."'  AND mat_khau= '".$pass."' ";
+function checkuser($tai_khoan,$mat_khau){
+    $sql = "select * from tb_user where tai_khoan='".$tai_khoan."'  AND mat_khau= '".$mat_khau."' ";
     $result = pdo_query_one($sql);
     return $result;
 }
@@ -39,10 +39,38 @@ function update_taikhoan($ten,$id,$tai_khoan,$mat_khau,$email,$dia_chi,$dien_tho
     
      pdo_execute($sql);
 }
+function update_taikhoan1($ten,$tai_khoan,$email,$dia_chi,$dien_thoai,$id){
+    $sql="update tb_user set ten='".$ten."', tai_khoan='".$tai_khoan."',email='".$email."',dia_chi='".$dia_chi."',dien_thoai='".$dien_thoai."' where id=".$id;
+     pdo_execute_return_lastInsertId($sql);
+}
+function update_taikhoan2($mat_khau,$id){
+    $sql="update tb_user set mat_khau='".$mat_khau."' where id=".$id;
+     pdo_execute($sql);
+}
 function delete_taikhoan($id){
     $sql = "delete from tb_user where id=".$id;
     pdo_execute($sql);
 }
+function checkuser1($tai_khoan,$mat_khau,$role){
+    $sql = "select * from tb_user where tai_khoan='".$tai_khoan."'  AND mat_khau= '".$mat_khau."' AND id_role='".$role."' ";
+    $result = pdo_query_one($sql);
+    return $result;
+}
+// function checkRole($allowedRoles) {
+//     if (!isset($_SESSION['idPerson'])) {
+//         // Nếu người dùng chưa đăng nhập, chuyển hướng hoặc hiển thị thông báo
+//         // header('Location:'); 
+       
+//         echo '<script>window.location.replace("/duan1/admin/nalika/dangnhap.php");</script>';// Chuyển hướng đến trang đăng nhập
+//         exit;
+//     }
+//     else{
+//     $userRole=$_SESSION["id"];
+//     if (!in_array($userRole, $allowedRoles)) {
+//         echo 'Bạn không có quyền truy cập vào trang này.';
+//         exit();
+//     }}
+// }
 // function sendEmail($email){
 //     $sql="select * from tb_user where email='$email'";
 //     $taikhoan=pdo_query_one($sql);

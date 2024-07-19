@@ -19,23 +19,23 @@
  <!--register area start-->
  <div class="col-lg-6 col-md-6">
                                             <div class="account_form register">
-                                                <h2>Đăng Ký</h2>
+                                                <h2>Đăng Ký 
                                                 <form action="index.php?act=dangky" method="post">
                                                 <p>   
                                                         <label>Nhập Email  <span>*</span></label>
-                                                        <input type="email" name="email">
+                                                        <input type="email" name="email" required>
                                                      </p>
                                                     <p>   
                                                         <label>Nhập Tên Tài Khoản  <span>*</span></label>
-                                                        <input type="text" name="tai_khoan">
+                                                        <input type="text" name="tai_khoan" required>
                                                      </p>
                                                      <p>   
                                                         <label>Mật Khẩu <span>*</span></label>
-                                                        <input type="password" name="mat_khau">
+                                                        <input type="password" name="mat_khau" required>
                                                      </p>
                                                     <div class="login_submit">
                                                         <button type="submit" name="dangky" value="Đăng Ký">Đăng Ký</button>
-                                                        <button type="submit" name="dangnhap" value="Đăng Nhập"><a href="index.php?act=dangnhap">Đăng Nhập</a></button>
+                                                        <button type="submit" name="dangnhap" value="Đăng Nhập"><a href="index.php?act=login">Đăng Nhập</a></button>
                                                         <label for="remember">
                                                             <input id="remember" type="checkbox">
                                                             Ghi Nhớ Tài Khoản
@@ -45,7 +45,7 @@
                                                     </div>
                                                 </form>
                                                      <h3 class="thongbaoo" style="color:red">
-                                                <?php
+                                                     <?php
                                                 
                                                 if(isset($thongbao)&&($thongbao!="")){
                                                     echo $thongbao;

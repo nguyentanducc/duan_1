@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Coron - Fashion eCommerce Bootstrap4 Template</title>
+        <title>Nalika-Bán Điện Thoại Di động Template</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="templatefree\assets\img\favicon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="templatefree\assets\img\favicon.ico">
 		
 		<!-- all css here -->
         <link rel="stylesheet" href="templatefree\assets\css\bootstrap.min.css">
@@ -54,20 +54,21 @@
                                            
                                                 <ul>
                                                 <?php 
-                                            if(isset($_SESSION['tai_khoan'])){
+                                            if(isset($_SESSION['tai_khoan'])&&(is_array($_SESSION['tai_khoan']))){
                                                 extract($_SESSION['tai_khoan']);
                                             ?>
-                                                    <li><a href="templatefree\contact.html" title="Contact">Liên Hệ</a></li>
-                                                    <li><a href="templatefree\my-account.html" title="My account"><?=$tai_khoan?></a></li>
-                                                    <li><a href="admin/nalika/index.php" title="My cart">Đăng Nhập Admin</a></li>
-                                                    <li><a href="index.php?act=cart" title="My cart">Giỏ Hàng</a></li>
+                                                    <li><a href="index.php?act=taikhoan" title="My account"><?=$tai_khoan?></a></li>
+                                                    <?php if($id_role==1){
+            ?>
+                                                    <li><a href="admin/nalika/dangnhap.php" title="My cart">Đăng Nhập Admin</a></li>
+                                                    <?php }
+            ?>
+                                                    <li><a href="index.php?act=addtocart" title="My cart">Giỏ Hàng</a></li>
                                                     <li><a href="index.php?act=thoat" title="Login">Thoát</a></li>
                                                 
                                                 <?php 
                                                 }else{
                                                 ?>
-                                                    <li><a href="templatefree\contact.html" title="Contact">Liên Hệ</a></li>
-                                                    <li><a href="templatefree\my-account.html" title="My account">Nguyễn Tấn Đức</a></li>
                                                     <li><a href="index.php?act=addtocart" title="My cart">Giỏ Hàng</a></li>
                                                     <li><a href="index.php?act=login" title="Login">Đăng Nhập</a></li>
                                                 </ul>
@@ -97,11 +98,11 @@
                                                         <button type="submit"><i class="fa fa-search"></i></button>
                                                     </form>
                                                 </div>
-                                                <div class="shopping_cart">
-                                                    <a href="#"><i class="fa fa-shopping-cart"></i> 2Items - $209.44 <i class="fa fa-angle-down"></i></a>
+                                                <!-- <div class="shopping_cart">
+                                                    <a href="#"><i class="fa fa-shopping-cart"></i> 2Items - $209.44 <i class="fa fa-angle-down"></i></a> -->
 
                                                     <!--mini cart-->
-                                                    <div class="mini_cart">
+                                                    <!-- <div class="mini_cart">
                                                         <div class="cart_item">
                                                            <div class="cart_img">
                                                                <a href="#"><img src="templatefree\assets\img\cart\cart.jpg" alt=""></a>
@@ -139,9 +140,9 @@
                                                         <div class="cart_button">
                                                             <a href="templatefree\checkout.html"> Check out</a>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                     <!--mini cart end-->
-                                                </div>
+                                                <!-- </div> -->
 
                                             </div>
                                         </div>
@@ -165,23 +166,9 @@
                                                                 </div> 
                                                             </li>
                                                             <li><a href="index.php?act=sanpham">Sản Phẩm</a>
-                                                                <div class="mega_menu jewelry">
-                                                                    <div class="mega_items jewelry">
-                                                                        <ul>
-                                                                            <li><a href="shop-list.html">shop list</a></li>
-                                                                            <li><a href="shop-fullwidth.html">shop Full Width Grid</a></li>
-                                                                            <li><a href="shop-fullwidth-list.html">shop Full Width list</a></li>
-                                                                            <li><a href="shop-sidebar.html">shop Right Sidebar</a></li>
-                                                                            <li><a href="shop-sidebar-list.html">shop list Right Sidebar</a></li>
-                                                                            <li><a href="single-product.html">Product Details</a></li>
-                                                                            <li><a href="single-product-sidebar.html">Product sidebar</a></li>
-                                                                            <li><a href="single-product-video.html">Product Details video</a></li>
-                                                                            <li><a href="single-product-gallery.html">Product Details Gallery</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>  
+                                                                 
                                                             </li>
-                                                            <li><a href="#">IPHONE </a>
+                                                            <!-- <li><a href="#">IPHONE </a>
                                                                 <div class="mega_menu">
                                                                     <div class="mega_top fix">
                                                                         <div class="mega_items">
@@ -295,9 +282,9 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </li>
+                                                            </li> -->
                                                             
-                                                            <li><a href="templatefree\blog.html">blog</a>
+                                                            <!-- <li><a href="templatefree\blog.html">blog</a>
                                                                 <div class="mega_menu jewelry">
                                                                     <div class="mega_items jewelry">
                                                                         <ul>
@@ -307,8 +294,8 @@
                                                                         </ul>
                                                                     </div>
                                                                 </div>  
-                                                            </li>
-                                                            <li><a href="templatefree\contact.html">Liên Hệ</a></li>
+                                                            </li> -->
+                                                            <!-- <li><a href="templatefree\contact.html">Liên Hệ</a></li> -->
 
                                                         </ul>
                                                     </nav>

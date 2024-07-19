@@ -7,6 +7,39 @@
                                     include "slide.php";
                                     ?>
                                     <!--new product area start-->
+                                    <div class="brand_logo mb-60">
+                                        <div class="block_title">
+                                            <h3>Danh Mục Sản Phẩm</h3>
+                                        </div>
+                                        <div class="row">
+                                            <div class="brand_active owl-carousel">
+                                               
+                                                    <?php foreach($dsdm as $danhmuc){
+                                                extract($danhmuc);
+                                                $linkdm="index.php?act=sanpham&id_danhmuc=".$id;
+                                                $hinhpath= "./admin/nalika/upload/".$hinh;
+                                                if(is_file($hinhpath)){
+                                                    $hinh="<img src='".$hinhpath."' width='100px' height='100px'>";
+                                                }else{
+                                                    $hinh="no photo";
+                                                }
+                                            echo'<div class="col-lg-2">
+                                            <div class="single_brand">
+                                            <a href="'.$linkdm.'">'.$hinh.'</a>
+                                            </div>
+                                        </div>
+                                            ';
+                                            }
+                                                ?>
+                                                    
+                                                    </div>
+                                                </div>
+                                               
+                                                
+                                                
+                                               
+                                                
+                                            </div>
                                     <div class="new_product_area">
                                         <div class="block_title">
                                             <h3>Sản Phẩm Mới</h3>
@@ -162,19 +195,15 @@
                                         <div class="row">
                                             <div class="product_active owl-carousel">
                                                 <?php
-                                                foreach($spnew as $sanpham){
+                                                foreach($sphot as $sanpham){
                                                     extract($sanpham);
                                                     $link="index.php?act=sanphamct&idsp=$id";
                                                     $hinhpath= "./admin/nalika/upload/".$hinh;
-                                                    if(is_file($hinhpath)){
-                                                        $hinh="<img src='".$hinhpath."' >";
-                                                    }else{
-                                                        $hinh="no photo";
-                                                    }
+                                                    
                                                     echo'<div class="col-lg-3">
                                                     <div class="single_product">
                                                         <div class="product_thumb">
-                                                           <a href="'.$link.'">'.$hinh.'</a> 
+                                                           <a href="'.$link.'"><img src="'.$hinhpath.'" alt=""></a> 
                                                            <div class="hot_img">
                                                                <img src="templatefree\assets\img\cart\span-hot.png" alt="">
                                                            </div>
@@ -300,64 +329,14 @@
                                     <!--banner area start-->
                                     <div class="banner_area mb-60">
                                         <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single_banner">
-                                                    <a href="#"><img src="templatefree\assets\img\banner\banner7.jpg" alt=""></a>
-                                                    <div class="banner_title">
-                                                        <p>Up to <span> 40%</span> off</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single_banner">
-                                                    <a href="#"><img src="templatefree\assets\img\banner\banner8.jpg" alt=""></a>
-                                                    <div class="banner_title title_2">
-                                                        <p>sale off <span> 30%</span></p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            
+                                            
                                         </div>
                                     </div>     
                                     <!--banner area end--> 
 
                                     <!--brand logo strat--> 
-                                    <div class="brand_logo mb-60">
-                                        <div class="block_title">
-                                            <h3>Brands</h3>
-                                        </div>
-                                        <div class="row">
-                                            <div class="brand_active owl-carousel">
-                                                <div class="col-lg-2">
-                                                    <div class="single_brand">
-                                                        <a href="#"><img src="templatefree\assets\img\brand\brand1.jpg" alt=""></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-2">
-                                                    <div class="single_brand">
-                                                        <a href="#"><img src="templatefree\assets\img\brand\brand2.jpg" alt=""></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-2">
-                                                    <div class="single_brand">
-                                                        <a href="#"><img src="templatefree\assets\img\brand\brand3.jpg" alt=""></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-2">
-                                                    <div class="single_brand">
-                                                        <a href="#"><img src="templatefree\assets\img\brand\brand4.jpg" alt=""></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-2">
-                                                    <div class="single_brand">
-                                                        <a href="#"><img src="templatefree\assets\img\brand\brand5.jpg" alt=""></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-2">
-                                                    <div class="single_brand">
-                                                        <a href="#"><img src="templatefree\assets\img\brand\brand6.jpg" alt=""></a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    
                                         </div>
                                     </div>       
                                     <!--brand logo end-->        

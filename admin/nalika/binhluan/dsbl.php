@@ -45,24 +45,31 @@
                                     <th>Ngày Bình Luận</th>
                                     <th>Chức Năng</th>
                                 </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Sản Phẩm 1</td>
+                                <?php
+                                foreach($dsbl as $bl){
+                                    extract($bl);
+                                    $xoabl="index.php?act=xoabl&id=".$id;
+                                    echo'<tr>
+                                    <td>'.$id.'</td>
+                                    <td>'.$noidung.'</td>
                                     <td>
-                                     2
+                                     '.$iduser.'
                                     </td>
                                     <td>
-                                     2
+                                     '.$idpro.'
                                     </td>
                                     <td>
-                                    11-9-2023
+                                    '.$ngaybinhluan.'
                                     </td>
                                     <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                    <a href="'.$xoabl.'"><button data-toggle="tooltip" title="Xóa" class="pd-setting-ed" onclick="return confirm(\'Bạn có chắc muốn xóa\')"> <i class="fa fa-trash-o" aria-hidden="true" ></i></button></a>
+
                                     </td>
-                                </tr>
-                                <tr>
+                                </tr>';
+                                }
+                                
+                                ?>
+                                <!-- <tr>
                                     <td>2</td>
                                     <td>Sản Phẩm 2</td>
                                     <td>
@@ -145,7 +152,7 @@
                                         <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                                         <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                     </td>
-                                </tr>
+                                </tr> -->
                             </table>
                             <div class="custom-pagination">
 								<ul class="pagination">

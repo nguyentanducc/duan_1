@@ -1,3 +1,6 @@
+<?php
+    extract($sp);
+    ?>
 <div class="breadcome-area">
                 <div class="container-fluid">
                     <div class="row">
@@ -35,91 +38,103 @@
 						<div class="single-product-pr">
 							<div class="row">
 								<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-									<div id="myTabContent1" class="tab-content">
-										<div class="product-tab-list tab-pane fade active in" id="single-tab1">
-											<img src="img/product/bg-1.jpg" alt="" />
-										</div>
-										<div class="product-tab-list tab-pane fade" id="single-tab2">
-											<img src="img/product/bg-2.jpg" alt="" />
-										</div>
-										<div class="product-tab-list tab-pane fade" id="single-tab3">
-											<img src="img/product/bg-3.jpg" alt="" />
-										</div>
-										<div class="product-tab-list tab-pane fade" id="single-tab4">
-											<img src="img/product/bg-1.jpg" alt="" />
-										</div>
-										<div class="product-tab-list tab-pane fade" id="single-tab5">
-											<img src="img/product/bg-2.jpg" alt="" />
-										</div>
-									</div>
-									<ul id="single-product-tab">
-										<li class="active">
-											<a href="#single-tab1"><img src="img/product/1.jpg" alt="" /></a>
-										</li>
-										<li>
-											<a href="#single-tab2"><img src="img/product/2.jpg" alt="" /></a>
-										</li>
-										<li>
-											<a href="#single-tab3"><img src="img/product/3.jpg" alt="" /></a>
-										</li>
-										<li>
-											<a href="#single-tab4"><img src="img/product/1.jpg" alt="" /></a>
-										</li>
-									</ul>
-								</div>
+								<?php   
+                                             $hinhpath= "./upload/".$hinh;
+                                                  if(is_file($hinhpath)){
+                                               $hinh="<img src='".$hinhpath."' >";
+                                                }else{
+                                                 $hinh="no photo";
+												}
+												 echo'<div id="myTabContent1" class="tab-content">
+												 <div class="product-tab-list tab-pane fade active in" id="single-tab1">
+													 '.$hinh.'
+												 </div>
+												 <div class="product-tab-list tab-pane fade" id="single-tab2">
+												 '.$hinh.'
+												 </div>
+												 <div class="product-tab-list tab-pane fade" id="single-tab3">
+												 '.$hinh.'
+												 </div>
+												 <div class="product-tab-list tab-pane fade" id="single-tab4">
+												 '.$hinh.'
+												 </div>
+												 <div class="product-tab-list tab-pane fade" id="single-tab5">
+												 '.$hinh.'
+												 </div>
+											 </div>
+											 <ul id="single-product-tab">
+												 <li class="active">
+													 <a href="#single-tab1">'.$hinh.'</a>
+												 </li>
+												 <li>
+													 <a href="#single-tab2">'.$hinh.'</a>
+												 </li>
+												 <li>
+													 <a href="#single-tab3">'.$hinh.'</a>
+												 </li>
+												 <li>
+													 <a href="#single-tab4">'.$hinh.'</a>
+												 </li>
+											 </ul>
+										 </div>';
+                                   
+								?>
 								<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
 									<div class="single-product-details res-pro-tb">
-										<h1>Sản Phẩm ABC</h1>
-										<span class="single-pro-star">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</span>
-										<div class="single-pro-price">
-											<span class="single-regular">$150.00</span><span class="single-old"><del>$20.00</del></span>
-										</div>
-										<div class="single-pro-size">
-											<h6>Size</h6>
-											<span>S</span> <span>M</span> <span>L</span> <span>XL</span> <span>XXL</span>
-										</div>
-										<div class="color-quality-pro">
-											<div class="color-quality-details">
-												<h5>Color</h5>
-												<span class="red"></span> <span class="green"></span> <span class="yellow"></span> <span class="black"></span> <span class="white"></span>
-											</div>
-											<div class="color-quality">
-												<h4>Quality</h4>
-												<div class="quantity">
-													<div class="pro-quantity-changer">
-														<input type="text" value="1" />
-													</div>
-												</div>
-											</div>
-											<div class="clear"></div>
-											<div class="single-pro-button">
-												
-												<div class="pro-viwer">
-													<a href="#"><i class="fa fa-heart"></i></a>
-													<a href="#"><i class="fa fa-eye"></i></a>
-												</div>
-											</div>
-											<div class="clear"></div>
-											<div class="single-social-area">
-												<h3>share this on</h3>
-												<a href="#"><i class="fa fa-facebook"></i></a>
-												<a href="#"><i class="fa fa-google-plus"></i></a>
-												<a href="#"><i class="fa fa-feed"></i></a>
-												<a href="#"><i class="fa fa-twitter"></i></a>
-												<a href="#"><i class="fa fa-linkedin"></i></a>
-											</div>
-										</div>
-										<div class="single-pro-cn">
-											<h3>OVERVIEW</h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-												consequat. Duis aute irure dolor in reprehenderit in voluptate </p>
-										</div>
+									
+			<h1><?=$ten?></h1>
+			<span class="single-pro-star">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+			</span>
+			<div class="single-pro-price">
+				<span class="single-regular"><?=$gia?></span><span class="single-old"><del>$20.00</del></span>
+			</div>
+			<div class="single-pro-size">
+				<h6>Size</h6>
+				<span>S</span> <span>M</span> <span>L</span> <span>XL</span> <span>XXL</span>
+			</div>
+			<div class="color-quality-pro">
+				<div class="color-quality-details">
+					<h5>Color</h5>
+					<span class="red"></span> <span class="green"></span> <span class="yellow"></span> <span class="black"></span> <span class="white"></span>
+				</div>
+				<div class="color-quality">
+					<h4>Quality</h4>
+					<div class="quantity">
+						<div class="pro-quantity-changer">
+							<input type="text" value="1" />
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="single-pro-button">
+					
+					<div class="pro-viwer">
+						<a href="#"><i class="fa fa-heart"></i></a>
+						<a href="#"><i class="fa fa-eye"></i></a>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="single-social-area">
+					<h3>share this on</h3>
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-google-plus"></i></a>
+					<a href="#"><i class="fa fa-feed"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+				</div>
+			</div>
+			<div class="single-pro-cn">
+				<h3>OVERVIEW</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate </p>
+			</div>';
+			
+										
 									</div>
 								</div>
 							</div>

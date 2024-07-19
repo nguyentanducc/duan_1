@@ -5,7 +5,7 @@
                                 <div class="col-12">
                                     <div class="breadcrumb_content">
                                         <ul>
-                                            <li><a href="index.phps">Trang Chủ</a></li>
+                                            <li><a href="index.php">Trang Chủ</a></li>
                                             <li><i class="fa fa-angle-right"></i></li>
                                             <li>Full Sản Phẩm</li>
                                         </ul>
@@ -69,15 +69,15 @@
                                                 $link="index.php?act=sanphamct&idsp=$id";
                                                 $hinhpath= "./admin/nalika/upload/".$hinh;
                                                     if(is_file($hinhpath)){
-                                                        $hinh="<img src='".$hinhpath."'  height='200px'>";
+                                                        $hinh1="<img src='".$hinhpath."'>";
                                                     }else{
-                                                        $hinh="no photo";
+                                                        $hinh1="no photo";
                                                     }
                                           
                                             echo'<div class="col-lg-3 col-md-4 col-sm-6">
                                             <div class="single_product" >
                                                 <div class="product_thumb">
-                                                   <a href="'.$link.'">'.$hinh.' </a> 
+                                                   <a href="'.$link.'">'.$hinh1.' </a> 
                                                    <div class="img_icone">
                                                        <img src="assets\img\cart\span-new.png" alt="">
                                                    </div>
@@ -361,7 +361,7 @@
                                                 
                                             </div> -->
                                             
-                                        </div> 
+                                        
                                             </div> 
                                         </div>  
                                     </div>

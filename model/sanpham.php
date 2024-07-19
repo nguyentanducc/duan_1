@@ -4,8 +4,13 @@ function loadall_sanpham_home(){
     $listsanpham=pdo_query($sql);
     return  $listsanpham;   
 }
-function loadall_sanpham_top10(){
-    $sql="SELECT * FROM tb_sanphamm  WHERE is_deleted = 0 order by luotxem desc limit 0,10";
+function loadall_sanpham_best(){
+    $sql="SELECT * FROM tb_sanphamm  WHERE 1 order by luot_xem desc limit 0,3";
+    $listsanpham=pdo_query($sql);
+    return $listsanpham;
+}
+function loadall_sanpham_chay(){
+    $sql="SELECT * FROM tb_sanphamm  WHERE seller=1 order by id desc limit 0,2";
     $listsanpham=pdo_query($sql);
     return $listsanpham;
 }
@@ -48,12 +53,21 @@ function loadone_sanpham($id){
     $sanpham=pdo_query_one($sql); 
 return $sanpham;
 }
-
-// function update_sanpham($id,$id_danhmuc,$tensp,$giasp,$giam_gia,$hinh){
-//     if($hinh!=""){
-//     $sql="UPDATE tb_sanphamm  set id_danhmuc ='".$id_danhmuc."', ten='".$tensp."',gia='".$giasp."',giam_gia='".$giam_gia."',hinh='".$hinh."' where id=".$id;
-//     }else{
-//     $sql="UPDATE tb_sanphamm  set id_danhmuc ='".$id_danhmuc."', ten='".$tensp."',gia='".$giasp."',giam_gia='".$giam_gia."' where id=".$id;
-// }
-//      pdo_execute($sql);
-// }
+function update_luotxem($id)  {
+    $sql="UPDATE tb_sanphamm set luot_xem=luot_xem+1 Where id=".$id;
+    pdo_execute($sql);
+}
+function update_sanpham($id,$id_danhmuc,$tensp,$giasp,$giam_gia,$hinh){
+    if($hinh!=""){
+    $sql="UPDATE tb_sanphamm  set id_danhmuc ='".$id_danhmuc."', ten='".$tensp."',gia='".$giasp."',giam_gia='".$giam_gia."',hinh='".$hinh."' where id=".$id;
+    }else{
+    $sql="UPDATE tb_sanphamm  set id_danhmuc ='".$id_danhmuc."', ten='".$tensp."',gia='".$giasp."',giam_gia='".$giam_gia."' where id=".$id;
+}
+     pdo_execute($sql);
+}
+function loadanh_sanpham($id){
+    $sql="SELECT tb_hinh.hinh from `tb_hinh`LEFT JOIN tb_sanphamm ON tb_hinh.id_sanpham=tb_sanphamm.id
+    WHERE tb_sanphamm.id=$id";
+    $listanh=pdo_query($sql);
+    return $listanh;
+}

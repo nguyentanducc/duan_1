@@ -64,6 +64,81 @@
     <!-- main JS
 		============================================ -->
     <script src="js/main.js"></script>
+    <script>
+  google.charts.load('current', {
+    'packages': ['corechart']
+  });
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+
+    // Set Data
+    const data = google.visualization.arrayToDataTable([
+      ['DANH MUC', 'SỐ LƯỢNG SẢN PHẨM'],
+      <?php
+      $tongdm = count($thongkedm);
+      $i = 1;
+      foreach ($thongkedm as $dm) {
+        extract($dm);
+        if ($i == $tongdm) {
+          $dauphay = "";
+        } else {
+          $dauphay = ",";
+        }
+        echo "['" . $dm['tendm'] . "'," . $dm['demsp'] . "]" . $dauphay;
+        $i += 1;
+      }
+      ?>
+    ]);
+
+    // Set Options
+    const options = {
+      title: 'THỐNG KÊ SẢN PHẨM THEO DANH MỤC',
+      is3D: true
+    };
+
+    // Draw
+    const chart = new google.visualization.PieChart(document.getElementById('myChart'));
+    chart.draw(data, options);
+
+  }
+</script>
+<!-- ================= -->
+<script>
+google.charts.load('current',{packages:['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    // Set Data
+    const data = google.visualization.arrayToDataTable([
+       ['Price', 'Tong','giá cao nhất','giá thấp nhất','Số lượng đơn hàng'],
+      <?php
+      $tongdh = count($thongkedh);
+      $i = 1;
+      foreach ($thongkedh as $dh) {
+        extract($dh);
+        if ($i == $tongdh) {
+          $dauphay = "";
+        } else {
+          $dauphay = ",";
+        }
+        echo "['" . $dh['ngay'] . "'," . $dh['tongtien'] . "," . $dh['maxtong'] . "," . $dh['mintong']."," . $dh['countbill'] . "]". $dauphay;
+        $i += 1;
+      }
+      ?>
+    ]);
+    // Set Options
+    const options = {
+      title: 'Thống kê đơn hàng theo ngày',
+      hAxis: { title: 'ngày đặt hàng' },
+      vAxis: { title: 'giá tính nghìn đồng' },
+      legend: 'true'
+    };
+    // Draw Chart
+    const chart = new google.visualization.LineChart(document.getElementById('Chart'));
+    chart.draw(data, options);
+  }
+</script>
 </body>
 
 </html>

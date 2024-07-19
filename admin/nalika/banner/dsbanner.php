@@ -36,33 +36,40 @@
                         <div class="product-status-wrap">
                             <h4>DANH SÁCH BANNER</h4>
                             <div class="add-product">
-                                <a href="index.php?act=themdm">THÊM BANNER</a>
+                                <a href="index.php?act=thembn">THÊM BANNER</a>
                             </div>
                             <table>
                                 <tr>
                                     <th>Mã </th>
-                                    <th>Tên BANNER</th>
                                     <th>HÌNH</th>
                                     <th>Chức Năng</th>
                                 </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Sản Phẩm 1</td>
+                                <?php
+                                foreach($listbn as $bn){
+                                    extract($bn);
+                                    $suabn="index.php?act=suabn&id=".$id;
+                                    $xoabn="index.php?act=xoabn&id=".$id;
+                                    $hinhpath= "./upload/".$hinh;
+                                    if(is_file($hinhpath)){
+                                        $hinh="<img src='".$hinhpath."' >";
+                                    }else{
+                                        $hinh="no photo";
+                                    }
+                                    echo'<tr>
+                                    <td>'.$id.'</td>
+                                    <td>'.$hinh.'</td>
                                     <td>
-                                     
+                                    <a href="'.$suabn.'"><button data-toggle="tooltip" title="Sửa" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                    <a href="'.$xoabn.'"><button data-toggle="tooltip" title="Xóa" class="pd-setting-ed" onclick="return confirm(\'Bạn có chắc muốn xóa\')"> <i class="fa fa-trash-o" aria-hidden="true" ></i></button></a>
                                     </td>
-                                    
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
+                                </tr>';
+                                }
+                                ?>
+                                
+                                <!-- <tr>
                                     <td>2</td>
                                     <td>Sản Phẩm 2</td>
-                                    <td>
-                                        
-                                    </td>
+                                  
                                     
                                     <td>
                                         <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
@@ -70,11 +77,9 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><3</td>
+                                    <td>3</td>
                                     <td>Sản Phẩm 3</td>
-                                    <td>
-                                        
-                                    </td>
+                                   
                                     
                                     <td>
                                         <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
@@ -84,9 +89,7 @@
                                 <tr>
                                     <td>1</td>
                                     <td>Sản Phẩm 4</td>
-                                    <td>
-                                     
-                                    </td>
+                                    
                                     
                                     <td>
                                         <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
@@ -96,9 +99,7 @@
                                 <tr>
                                     <td>4</td>
                                     <td>Sản Phẩm 5</td>
-                                    <td>
-                                     
-                                    </td>
+                                    
                                  
                                     <td>
                                         <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
@@ -108,13 +109,12 @@
                                 <tr>
                                     <td>5</td>
                                     <td>Sản Phẩm 6</td>
-                                    <td>
-                                    </td>
+                                   
                                     <td>
                                         <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                                         <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                     </td>
-                                </tr>
+                                </tr> -->
                             </table>
                             <div class="custom-pagination">
 								<ul class="pagination">

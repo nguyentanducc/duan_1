@@ -32,7 +32,7 @@ function pdo_execute_return_lastInsertID($sql){
         $conn=pdo_get_connection();
         $stmt=$conn->prepare($sql);
         $stmt->execute($sql_args);
-        return $conn->lastInsertID();
+        return $conn->lastInsertId($sql);
     }
     catch(PDOException $e){
         throw $e;

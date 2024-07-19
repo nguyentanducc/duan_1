@@ -5,11 +5,20 @@
                                    <!--sidebar banner-->
                                     <div class="sidebar_widget banner mb-35">
                                         <div class="banner_img mb-35">
-                                            <a href="#"><img src="templatefree\assets\img\banner\banner5.jpg" alt=""></a>
+                                       <?php foreach($dsdm as $danhmuc){
+                                                extract($danhmuc);
+                                                $linkdm="index.php?act=sanpham&id_danhmuc=".$id;
+                                                $hinhpath= "./admin/nalika/upload/".$hinh;
+                                                if(is_file($hinhpath)){
+                                                    $hinh="<img src='".$hinhpath."'  >";
+                                                }else{
+                                                    $hinh="no photo";
+                                                }
+                                            echo'<a href="'.$linkdm.'">'.$hinh.'</a>';
+                                            }
+                                                ?>
                                         </div>
-                                        <div class="banner_img">
-                                            <a href="#"><img src="templatefree\assets\img\banner\banner6.jpg" alt=""></a>
-                                        </div>
+                                        
                                     </div>
                                     <!--sidebar banner end-->
 
@@ -21,7 +30,7 @@
                                             foreach($dsdm as $danhmuc){
                                                 extract($danhmuc);
                                              $linkdm="index.php?act=sanpham&id_danhmuc=".$id;
-                                                echo'<a href="'.$linkdm.'" style="color:white;"><li>  '.$ten.'
+                                                echo'<a href="'.$linkdm.'" style="color:white; fontsize"><li>  '.$ten.'
                                             </li></a>
                                              ';
                                             }
@@ -69,8 +78,8 @@
                                             <h3><a href="#">Sản Phẩm Bán Chạy</a></h3>
                                         </div>
                                         <?php
-                                        foreach($spnew as $sanpham){
-                                            extract($sanpham);
+                                        foreach($spbest as $sanpham){
+                                            extract($sanpham);  
                                             $link="index.php?act=sanphamct&idsp=$id";
                                             $hinhpath= "./admin/nalika/upload/".$hinh;
                                             if(is_file($hinhpath)){
@@ -83,7 +92,7 @@
                                                 <a href="'.$link.'">'.$hinh.'</a>
                                             </div>
                                              <div class="cart_info">
-                                                 <a href="index.php?act=sanphamct">'.$ten.'</a>
+                                                 <a href="'.$link.'">'.$ten.'</a>
                                                  <span class="cart_price">$'.$gia.'</span>
                                                  <span class="quantity">Qty: 1</span>
                                              </div>
@@ -94,7 +103,7 @@
                                         
                                         
                                         <div class="block_content">
-                                            <p>5  products</p>
+                                            <p>2 Sản Phảm</p>
                                             <a href="#">» My wishlists</a>
                                         </div>
                                     </div>
@@ -134,9 +143,7 @@
 
                                     <!--sidebar banner-->
                                     <div class="sidebar_widget bottom ">
-                                        <div class="banner_img">
-                                            <a href="#"><img src="templatefree\assets\img\banner\banner9.jpg" alt=""></a>
-                                        </div>
+                                        
                                     </div>
                                     <!--sidebar banner end-->
                                 </div>
